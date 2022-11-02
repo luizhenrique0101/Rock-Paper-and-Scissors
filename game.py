@@ -3,9 +3,12 @@ from os import system,name
 from colorama import Fore
 from rich.table import Table
 from rich.console import Console
+from tkinter import *
 
 
 hand = ['Pedra','Papel','Tesoura']
+
+
 winsPc   = winsPlayer   = 0
 trophyPc = trophyPlayer = 0
 
@@ -25,7 +28,7 @@ def display_combination():
     print()
  
 
-def PlayerPlay():
+'''def PlayerPlay():
     while True:
         display_combination()
         try:
@@ -41,7 +44,7 @@ def PlayerPlay():
             continue
         else:
             break
-    return indexPlayer
+    return indexPlayer'''
 
 
 def PcPlay():
@@ -91,10 +94,28 @@ def display_screen(indexRobot, indexPlayer):
     print('-'*30)
 
 
-while True:
-    pc     = PcPlay()
-    player = PlayerPlay()
-    display_screen(pc,player)
-    system('pause')
-    clear() 
-   
+def GameMain():
+    while True:
+        pc     = PcPlay()
+        #player = PlayerPlay()
+        #display_screen(pc,player)
+        system('pause')
+        clear()
+
+
+
+window = Tk()
+window.geometry('500x300+365+160')
+window.resizable(True,True)
+#window.minsize(500, 300)
+#window.maxsize(720, 400)
+#window.state('icon')     
+
+Label(window, text='Escolha uma das opções abaixo: ').grid(column=0, row=0)
+
+rock     = Button(window, text='Rock', command=None, padx=10).grid(column=1, row=2)
+paper    = Button(window, text='Paper', command=None, padx=10).grid(column=2, row=2)
+scissors = Button(window, text='Scissors', command=None, padx=10).grid(column=3, row=2)
+
+window.mainloop()
+
