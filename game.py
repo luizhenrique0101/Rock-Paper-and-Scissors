@@ -3,10 +3,7 @@ from os import system,name
 from colorama import Fore
 from rich.table import Table
 from rich.console import Console
-from sys import exit
-import pygame
-from pygame.locals import *
-
+   
 
 hand = ['Pedra','Papel','Tesoura']
 
